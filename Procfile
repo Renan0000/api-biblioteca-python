@@ -1,0 +1,2 @@
+python estruturaBanco
+web: gunicorn FlaskLivros:FlaskLivros
