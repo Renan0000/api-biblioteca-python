@@ -1,2 +1,2 @@
 python estruturaBanco
-web: gunicorn FlaskLivros:app
+web: gunicorn FlaskLivros:FlaskLivros
