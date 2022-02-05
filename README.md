@@ -3,3 +3,5 @@ API de 'biblioteca', onde é possivel adicionar,remover,modificar e criar novos 
 
 Link do projeto no heroku
 https://flask-api-renan.herokuapp.com/
+
+para testes há o usuario "teste" com senha "123456", sera gerado um token de autenticação
