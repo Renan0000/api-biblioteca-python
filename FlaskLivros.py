@@ -18,14 +18,14 @@ def token_obrigatorio(f):
         if 'x-acess-token' in request.headers:
             token = request.headers['x-acess-token']
         if not token:
-            return jsonify({'mensagem': 'Token não foi incluido'}, 401)
+            return jsonify({'mensagem': 'Token nao foi incluido'}, 401)
         # Se temos um token, validar acesso consultado o banco
         try:
             resultado = jwt.decode(token, app.config['SECRET_KEY'])
             autor = Autor.query.filter_by(
                 id_autor=resultado['id_autor']).first()
         except:
-            return jsonify({'mensagem': 'Token é invalido'}, 401)
+            return jsonify({'mensagem': 'Token invalido'}, 401)
         return f(autor, *args, **kwargs)
     return decorated
 
@@ -34,7 +34,7 @@ def token_obrigatorio(f):
 def login():
     auth = request.authorization
     if not auth or not auth.username or not auth.password:
-        return make_response('Login inválido', 401, {'WWW-Authenticate': 'Basic realm="Login obrigatório"'})
+        return make_response('Login invalido', 401, {'WWW-Authenticate': 'Basic realm="Login obrigatorio"'})
     usuario = Autor.query.filter_by(nome=auth.username).first()
     if not usuario:
         return make_response('Login Invalido', 401, {'WWW-Authenticate': 'Basic realm="Login obrigatorio"'})
