@@ -41,7 +41,7 @@ def login():
     if auth.password == usuario.senha:
         token = jwt.encode({'id_autor': usuario.id_autor, 'exp': datetime.utcnow(
         ) + timedelta(minutes=30)}, app.config['SECRET_KEY'])
-        return jsonify({'token': token.decode('UTF-8')})
+        return jsonify({'token': token.decode})
     return make_response('Login Invalido', 401, {'WWW-Authenticate': 'Basic realm="Login obrigatorio"'})
 
 
