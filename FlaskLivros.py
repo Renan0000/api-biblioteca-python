@@ -45,7 +45,7 @@ def login():
     return make_response('Login Invalido', 401, {'WWW-Authenticate': 'Basic realm="Login obrigatorio"'})
 
 
-@app.route('/livros')
+@app.route('/')
 @token_obrigatorio
 def obter_livros(autor):
     livros = Livros.query.all()
